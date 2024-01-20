@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from infractions.models import Vehicle
 from infractions.serializers.vehicle import VehicleCreateSerializer
 from infractions.serializers.vehicle import VehicleSerializer
@@ -10,7 +10,7 @@ from utilities.paginator import CustomPagination
 class VehicleViewSet(ModelViewSet):
 	serializer_class = VehicleSerializer
 	queryset = Vehicle.objects
-	permission_classes = [IsAuthenticated]
+	permission_classes = [IsAuthenticated, IsAdminUser]
 	pagination_class = CustomPagination
 
 

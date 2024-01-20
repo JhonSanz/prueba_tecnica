@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from infractions.models import Person
 from infractions.serializers.person import PersonCreateSerializer
 from infractions.serializers.person import PersonSerializer
@@ -10,7 +10,7 @@ from utilities.paginator import CustomPagination
 class PersonViewSet(ModelViewSet):
 	serializer_class = PersonSerializer
 	queryset = Person.objects
-	permission_classes = [IsAuthenticated]
+	permission_classes = [IsAuthenticated, IsAdminUser]
 	pagination_class = CustomPagination
 
 
