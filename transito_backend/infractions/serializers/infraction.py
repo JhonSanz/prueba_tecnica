@@ -1,9 +1,13 @@
 from rest_framework import serializers
 from infractions.models import Infraction
 from infractions.models import Vehicle
+from infractions.serializers.officer import OfficerSerializer
+from infractions.serializers.vehicle import VehicleSerializer
 
 
 class InfractionSerializer(serializers.ModelSerializer):
+    officer = OfficerSerializer()
+    vehicle = VehicleSerializer()
     class Meta:
         model = Infraction
         fields = ['id', 'officer', 'created_at', 'vehicle', 'comments']

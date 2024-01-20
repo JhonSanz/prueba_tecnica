@@ -1,0 +1,8 @@
+.popover-custom {
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(-30px, -10px);
+    min-width: 20px;
+    padding: 10px;
+    border-radius: 0px;
+}
