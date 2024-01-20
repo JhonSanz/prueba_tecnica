@@ -1,52 +1,39 @@
 from utilities.read_initial_data import DataReader
 
 reader = DataReader(
-    data_file="utilities/initial_data/data_inversiones.xlsx",
-    app="position",
+    data_file="utilities/initial_data/data_infracciones.xlsx",
+    app="infractions",
     data_definition=[
         {
-            "sheet_name": "money",
-            "model": "Money",
-            "related_fields": [
-                {"model": "CustomUser", "field": "user", "app": "utilities"}
-            ],
+            "sheet_name": "brand",
+            "model": "Brand",
+            "related_fields": []
         },
         {
-            "sheet_name": "broker",
-            "model": "Broker",
-            "related_fields": [
-                {"model": "CustomUser", "field": "user", "app": "utilities"}
-            ],
+            "sheet_name": "person",
+            "model": "Person",
+            "related_fields": []
         },
         {
-            "sheet_name": "account",
-            "model": "Account",
+            "sheet_name": "officer",
+            "model": "Officer",
+            "related_fields": []
+        },
+        {
+            "sheet_name": "vehicle",
+            "model": "Vehicle",
             "related_fields": [
-                {"model": "Broker", "field": "broker"}
+                {"model": "Brand", "field": "brand"},
+                {"model": "Person", "field": "infractor"}
             ]
         },
         {
-            "sheet_name": "assets",
-            "model": "Asset",
+            "sheet_name": "infraction",
+            "model": "Infraction",
             "related_fields": [
-                {"model": "Account", "field": "account"}
+                {"model": "Officer", "field": "officer"},
+                {"model": "Vehicle", "field": "vehicle"}
             ]
         },
-        {
-            "sheet_name": "positions",
-            "model": "Position",
-            "related_fields": [
-                {"model": "Position", "field": "reference"},
-                {"model": "Asset", "field": "asset"}
-            ]
-        },
-        {
-            "sheet_name": "accountmoney",
-            "model": "AccountMoney",
-            "related_fields": [
-                {"model": "Account", "field": "account"},
-                {"model": "Money", "field": "money"}
-            ]
-        }
     ]
 )

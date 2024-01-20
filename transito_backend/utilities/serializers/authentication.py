@@ -12,7 +12,7 @@ class CustomAuthentication(BaseBackend):
         # Authenticate the user with its username or identification
         try:
             user = CustomUser.objects.get(
-                Q(username=username) | Q(identification=username))
+                Q(username=username))
             if user.check_password(password):
                 return user
             return None
@@ -53,6 +53,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['first_name'] = self.user.first_name
         data['last_name'] = self.user.last_name
         data['email'] = self.user.email
-        data['identification'] = self.user.identification
 
         return data

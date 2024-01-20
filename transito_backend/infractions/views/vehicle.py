@@ -10,7 +10,7 @@ from utilities.paginator import CustomPagination
 class VehicleViewSet(ModelViewSet):
 	serializer_class = VehicleSerializer
 	queryset = Vehicle.objects
-	permission_classes = [] # [IsAuthenticated]
+	permission_classes = [IsAuthenticated]
 	pagination_class = CustomPagination
 
 

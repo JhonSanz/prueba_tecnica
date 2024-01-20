@@ -6,20 +6,14 @@ import uuid
 
 class AbstractModel(models.Model):
     id = models.UUIDField(default=uuid.uuid1, unique=True, primary_key=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
-        ordering = ["-created_at", "-updated_at"]
 
 
 class CustomUser(AbstractUser):
-    identification = models.CharField(
-        max_length=50, null=True, blank=True)
-
     class Meta:
-        verbose_name = "Extended User"
+        verbose_name = "Custom user"
         ordering = ['-id']
 
     def get_full_name(self):

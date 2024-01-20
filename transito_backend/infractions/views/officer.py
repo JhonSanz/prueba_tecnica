@@ -10,7 +10,7 @@ from utilities.paginator import CustomPagination
 class OfficerViewSet(ModelViewSet):
 	serializer_class = OfficerSerializer
 	queryset = Officer.objects
-	permission_classes = [] # [IsAuthenticated]
+	permission_classes = [IsAuthenticated]
 	pagination_class = CustomPagination
 
 

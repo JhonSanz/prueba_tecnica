@@ -5,10 +5,10 @@ from infractions.models import Officer
 class OfficerSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Officer
-		fields = ['infraction', 'id', 'name', 'identification']
+		fields = ['id', 'name', 'identification']
 
 
 class OfficerCreateSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Officer
-		fields = ['infraction', 'id', 'name', 'identification']
+		fields = ['name', 'identification']

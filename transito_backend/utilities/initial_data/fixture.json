@@ -1,413 +1,285 @@
 [
     {
         "fields": {
-            "currency": "USD",
-            "user": "1"
+            "name": "yamaha"
         },
-        "model": "position.money",
-        "pk": "5eeb7eec-7dc5-55dd-a627-f1079c1afa3f"
+        "model": "infractions.brand",
+        "pk": "d13ef97a-5f8d-5933-9ba3-ce0cf5b21701"
     },
     {
         "fields": {
-            "currency": "COP",
-            "user": "1"
+            "name": "suzuki"
         },
-        "model": "position.money",
-        "pk": "ba876c53-da24-5546-8f58-7e4294661680"
+        "model": "infractions.brand",
+        "pk": "271d43cf-79c3-5f71-9796-47deeb416d8f"
     },
     {
         "fields": {
-            "currency": "AUD",
-            "user": "1"
+            "name": "kawasaki"
         },
-        "model": "position.money",
-        "pk": "ec569377-bc89-5c29-9091-2b200235a966"
+        "model": "infractions.brand",
+        "pk": "50912594-ef4b-5d5e-b86c-00012cd72fa3"
     },
     {
         "fields": {
-            "currency": "DOT",
-            "user": "1"
+            "name": "reanult"
         },
-        "model": "position.money",
-        "pk": "17eafc67-1431-5a91-9230-3b58854f69de"
+        "model": "infractions.brand",
+        "pk": "c8896a17-df15-57c5-85be-d29642538c53"
     },
     {
         "fields": {
-            "currency": "BTC",
-            "user": "1"
+            "name": "kia"
         },
-        "model": "position.money",
-        "pk": "a8c31b0a-a70d-5f6a-aefc-3d04b55da32f"
+        "model": "infractions.brand",
+        "pk": "c30b93b6-04a9-57ad-9d90-c98cafe8695d"
     },
     {
         "fields": {
-            "name": "pepperstone",
-            "user": "1",
-            "website": "https://pepperstone.com"
+            "email": "p1@mail.com",
+            "name": "Pedro Morales Pino"
         },
-        "model": "position.broker",
-        "pk": "f51f9ed2-6732-521c-ae22-78e5457729e8"
+        "model": "infractions.person",
+        "pk": "2fb3bfc7-3ec3-5115-a03b-f815cdf805ae"
     },
     {
         "fields": {
-            "name": "casas",
-            "user": "1",
-            "website": "nan"
+            "email": "p2@mail.com",
+            "name": "Francisco Cristancho"
         },
-        "model": "position.broker",
-        "pk": "ebb9a3e1-7161-55d6-8ca1-8071eba10211"
+        "model": "infractions.person",
+        "pk": "a65ff785-8865-50b0-9038-e7e8b89f82fb"
     },
     {
         "fields": {
-            "name": "Hapi",
-            "user": "1",
-            "website": "https://hapi.trade/es"
+            "email": "p3@mail.com",
+            "name": "Blanca Uribe"
         },
-        "model": "position.broker",
-        "pk": "8a294f02-e683-5f9b-9a06-510b327d409f"
+        "model": "infractions.person",
+        "pk": "8dcc2d21-9a65-5917-872e-7a57ff6636a8"
     },
     {
         "fields": {
-            "name": "cripto",
-            "user": "1",
-            "website": "nan"
+            "email": "p4@mail.com",
+            "name": "Maruja Hinestrosa"
         },
-        "model": "position.broker",
-        "pk": "c6a7a928-338a-5234-9df0-ef82a6875ef1"
+        "model": "infractions.person",
+        "pk": "051c5a48-2924-5030-8480-ad6d61826e2e"
     },
     {
         "fields": {
-            "account_type": "standard",
-            "broker": "f51f9ed2-6732-521c-ae22-78e5457729e8",
-            "details": "51113155.0",
-            "leverage": "200",
-            "name": "Cuenta real "
+            "email": "p5@mail.com",
+            "name": "Alvaro Romero S\u00e1nchez"
         },
-        "model": "position.account",
-        "pk": "c8dfd61e-69db-522d-93a6-e7744d9fc231"
+        "model": "infractions.person",
+        "pk": "b1d0b682-41fd-53db-aa71-9a144f4a9a21"
     },
     {
         "fields": {
-            "account_type": "Corriente",
-            "broker": "ebb9a3e1-7161-55d6-8ca1-8071eba10211",
-            "details": "91216488305.0",
-            "leverage": "1",
-            "name": "Bancolombia "
+            "email": "p6@mail.com",
+            "name": "Oriol Rangel"
         },
-        "model": "position.account",
-        "pk": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3"
+        "model": "infractions.person",
+        "pk": "ad303d15-1e32-597a-b979-b6375ace9e57"
     },
     {
         "fields": {
-            "account_type": "Corriente",
-            "broker": "8a294f02-e683-5f9b-9a06-510b327d409f",
-            "details": "nan",
-            "leverage": "1",
-            "name": "Cuenta Hapi"
+            "identification": "8291635475",
+            "name": "Policia 1"
         },
-        "model": "position.account",
-        "pk": "5be86589-ec2e-5db8-b388-36d2920a5511"
+        "model": "infractions.officer",
+        "pk": "3d2e6701-b15c-5891-93c2-d709d29eb74c"
     },
     {
         "fields": {
-            "account_type": "wallet",
-            "broker": "c6a7a928-338a-5234-9df0-ef82a6875ef1",
-            "details": "nan",
-            "leverage": "1",
-            "name": "electrum"
+            "identification": "5588446621",
+            "name": "Policia 2"
         },
-        "model": "position.account",
-        "pk": "fd1b6c0c-96de-50ae-9c24-16fec38849f5"
+        "model": "infractions.officer",
+        "pk": "4b79630c-020f-52b2-9ffd-be0031abae7c"
     },
     {
         "fields": {
-            "account_type": "wallet",
-            "broker": "c6a7a928-338a-5234-9df0-ef82a6875ef1",
-            "details": "nan",
-            "leverage": "1",
-            "name": "polkadot.js"
+            "identification": "6985471203",
+            "name": "Policia 3"
         },
-        "model": "position.account",
-        "pk": "d3c8b095-4f9e-5f44-832d-e7ebbe14f3e8"
+        "model": "infractions.officer",
+        "pk": "f5e3e688-52d9-58ef-aabb-8c130f52e105"
     },
     {
         "fields": {
-            "account_type": "exchange",
-            "broker": "c6a7a928-338a-5234-9df0-ef82a6875ef1",
-            "details": "nan",
-            "leverage": "1",
-            "name": "binance"
+            "identification": "3512468795",
+            "name": "Policia 4"
         },
-        "model": "position.account",
-        "pk": "f8b3c42e-c3f1-563c-88bd-f0336e8679b9"
+        "model": "infractions.officer",
+        "pk": "499476d3-c03b-576d-8c83-07b4951c16d0"
     },
     {
         "fields": {
-            "account": "c8dfd61e-69db-522d-93a6-e7744d9fc231",
-            "long_swap_coeficient": "-7.8",
-            "lot": "1",
-            "name": "QQQ",
-            "presition": "2",
-            "short_swap_coeficient": "2.8",
-            "swap_coeficient": "1111300"
+            "identification": "1234567890",
+            "name": "Policia 5"
         },
-        "model": "position.asset",
-        "pk": "7e50b079-882e-59a0-b988-1f7c9efc92e5"
+        "model": "infractions.officer",
+        "pk": "eb500847-96e4-5759-a33b-ddab440c7667"
     },
     {
         "fields": {
-            "account": "c8dfd61e-69db-522d-93a6-e7744d9fc231",
-            "long_swap_coeficient": "-17.5",
-            "lot": "10",
-            "name": "DOT",
-            "presition": "2",
-            "short_swap_coeficient": "5.0",
-            "swap_coeficient": "1111300"
+            "brand": "d13ef97a-5f8d-5933-9ba3-ce0cf5b21701",
+            "color": "white",
+            "infractor": "8dcc2d21-9a65-5917-872e-7a57ff6636a8",
+            "license_plate": "ABC123"
         },
-        "model": "position.asset",
-        "pk": "5dc83169-39ac-5b34-9f3d-d7b06fe52e74"
+        "model": "infractions.vehicle",
+        "pk": "99d80342-0522-5a45-8bce-d9277e9069ba"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "long_swap_coeficient": "0.0",
-            "lot": "1",
-            "name": "casa cachipay",
-            "presition": "0",
-            "short_swap_coeficient": "0.0",
-            "swap_coeficient": "0"
+            "brand": "271d43cf-79c3-5f71-9796-47deeb416d8f",
+            "color": "black",
+            "infractor": "051c5a48-2924-5030-8480-ad6d61826e2e",
+            "license_plate": "XYZ321"
         },
-        "model": "position.asset",
-        "pk": "d07de71f-b432-55a7-8890-bdc2c26e48c9"
+        "model": "infractions.vehicle",
+        "pk": "b9a9393e-a68e-5eaf-b6a0-d602492dae88"
     },
     {
         "fields": {
-            "account": "5be86589-ec2e-5db8-b388-36d2920a5511",
-            "long_swap_coeficient": "0.0",
-            "lot": "1",
-            "name": "Poder de compra",
-            "presition": "2",
-            "short_swap_coeficient": "0.0",
-            "swap_coeficient": "0"
+            "brand": "50912594-ef4b-5d5e-b86c-00012cd72fa3",
+            "color": "red",
+            "infractor": "2fb3bfc7-3ec3-5115-a03b-f815cdf805ae",
+            "license_plate": "FFF111"
         },
-        "model": "position.asset",
-        "pk": "a3ba2353-b42e-5d79-bf32-40bfd38b7cf2"
+        "model": "infractions.vehicle",
+        "pk": "1d1c6115-f86c-5c56-8bb5-5172310b211c"
     },
     {
         "fields": {
-            "account": "c8dfd61e-69db-522d-93a6-e7744d9fc231",
-            "long_swap_coeficient": "0.0",
-            "lot": "1",
-            "name": "COPUSD",
-            "presition": "1",
-            "short_swap_coeficient": "0.0",
-            "swap_coeficient": "0"
+            "brand": "c8896a17-df15-57c5-85be-d29642538c53",
+            "color": "blue",
+            "infractor": "b1d0b682-41fd-53db-aa71-9a144f4a9a21",
+            "license_plate": "REW542"
         },
-        "model": "position.asset",
-        "pk": "c7482f5a-d26f-5fbb-8d24-8c719603e344"
+        "model": "infractions.vehicle",
+        "pk": "873811a2-0109-51a9-876f-31aa72914540"
     },
     {
         "fields": {
-            "asset": "c7482f5a-d26f-5fbb-8d24-8c719603e344",
-            "close_date": "nan",
-            "description": "nan",
-            "direction": "1",
-            "is_leveraged": "False",
-            "open_date": "2023-07-27",
-            "order_type": "1",
-            "price": "3975.49906",
-            "reference": "None",
-            "volume": "0.08429885027"
+            "brand": "c30b93b6-04a9-57ad-9d90-c98cafe8695d",
+            "color": "white",
+            "infractor": "a65ff785-8865-50b0-9038-e7e8b89f82fb",
+            "license_plate": "JFD543"
         },
-        "model": "position.position",
-        "pk": "cd024e82-7a4d-5093-81ca-03608f01ae62"
+        "model": "infractions.vehicle",
+        "pk": "cc624843-24fd-511a-a7df-39c4f9ed2030"
     },
     {
         "fields": {
-            "asset": "c7482f5a-d26f-5fbb-8d24-8c719603e344",
-            "close_date": "nan",
-            "description": "nan",
-            "direction": "1",
-            "is_leveraged": "False",
-            "open_date": "2023-08-11",
-            "order_type": "1",
-            "price": "4060.186793",
-            "reference": "None",
-            "volume": "0.04113850138"
+            "brand": "271d43cf-79c3-5f71-9796-47deeb416d8f",
+            "color": "black",
+            "infractor": "ad303d15-1e32-597a-b979-b6375ace9e57",
+            "license_plate": "FVB324"
         },
-        "model": "position.position",
-        "pk": "3e6d34c0-d66b-539a-b521-3a863ff326a5"
+        "model": "infractions.vehicle",
+        "pk": "3c209d82-4af9-5d77-af20-4ca5f7eda0e0"
     },
     {
         "fields": {
-            "asset": "c7482f5a-d26f-5fbb-8d24-8c719603e344",
-            "close_date": "nan",
-            "description": "nan",
-            "direction": "1",
-            "is_leveraged": "False",
-            "open_date": "2023-10-30",
-            "order_type": "1",
-            "price": "4130.40367",
-            "reference": "None",
-            "volume": "0.0395845087"
+            "comments": "El infractor no manifiesta nada",
+            "created_at": "2022-01-01",
+            "officer": "3d2e6701-b15c-5891-93c2-d709d29eb74c",
+            "vehicle": "99d80342-0522-5a45-8bce-d9277e9069ba"
         },
-        "model": "position.position",
-        "pk": "7f95c9c7-5fcf-58c6-a68f-4b82aaab258d"
+        "model": "infractions.infraction",
+        "pk": "4a1e2072-f1c8-54a0-9bde-6e829fe1f4c9"
     },
     {
         "fields": {
-            "asset": "c7482f5a-d26f-5fbb-8d24-8c719603e344",
-            "close_date": "nan",
-            "description": "nan",
-            "direction": "1",
-            "is_leveraged": "False",
-            "open_date": "2023-11-15",
-            "order_type": "1",
-            "price": "3993.35",
-            "reference": "None",
-            "volume": "0.08388946624"
+            "comments": "El infractor no manifiesta nada",
+            "created_at": "2023-12-01",
+            "officer": "f5e3e688-52d9-58ef-aabb-8c130f52e105",
+            "vehicle": "b9a9393e-a68e-5eaf-b6a0-d602492dae88"
         },
-        "model": "position.position",
-        "pk": "69eda5f4-5872-5d6c-874a-0b2c778aa377"
+        "model": "infractions.infraction",
+        "pk": "669d8b99-8cab-5867-a3eb-2ad303a8f0fd"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-06-10",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
+            "comments": "El infractor estaba borracho",
+            "created_at": "2024-01-01",
+            "officer": "499476d3-c03b-576d-8c83-07b4951c16d0",
+            "vehicle": "1d1c6115-f86c-5c56-8bb5-5172310b211c"
         },
-        "model": "position.accountmoney",
-        "pk": "51bc1c6d-aac7-5c62-949c-083576b87535"
+        "model": "infractions.infraction",
+        "pk": "4ce3781f-6bd7-5f45-866e-39f2ae830ca4"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-07-10",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
+            "comments": "nan",
+            "created_at": "2023-12-01",
+            "officer": "4b79630c-020f-52b2-9ffd-be0031abae7c",
+            "vehicle": "873811a2-0109-51a9-876f-31aa72914540"
         },
-        "model": "position.accountmoney",
-        "pk": "0a86acfe-5d89-5c07-96f8-c46ad1535e0e"
+        "model": "infractions.infraction",
+        "pk": "a5d341cc-7ad7-58c8-a3ab-0108f1c305a6"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-07-27",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "-1350000.0"
+            "comments": "El infractor no manifiesta nada",
+            "created_at": "2022-01-01",
+            "officer": "eb500847-96e4-5759-a33b-ddab440c7667",
+            "vehicle": "cc624843-24fd-511a-a7df-39c4f9ed2030"
         },
-        "model": "position.accountmoney",
-        "pk": "27ee782a-16ee-5f2a-80b9-5ab11ae7753e"
+        "model": "infractions.infraction",
+        "pk": "bace92b5-c521-53fc-a831-137c43b4d65d"
     },
     {
         "fields": {
-            "account": "5be86589-ec2e-5db8-b388-36d2920a5511",
-            "date_deposit": "2023-07-27",
-            "money": "5eeb7eec-7dc5-55dd-a627-f1079c1afa3f",
-            "quantity": "335.13"
+            "comments": "nan",
+            "created_at": "2024-01-01",
+            "officer": "4b79630c-020f-52b2-9ffd-be0031abae7c",
+            "vehicle": "cc624843-24fd-511a-a7df-39c4f9ed2030"
         },
-        "model": "position.accountmoney",
-        "pk": "f535354b-66cf-5fc3-b294-dac6374b7b76"
+        "model": "infractions.infraction",
+        "pk": "7dce72c1-b8ee-525f-9774-ded2b6bc8466"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-08-03",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
+            "comments": "nan",
+            "created_at": "2024-01-01",
+            "officer": "3d2e6701-b15c-5891-93c2-d709d29eb74c",
+            "vehicle": "3c209d82-4af9-5d77-af20-4ca5f7eda0e0"
         },
-        "model": "position.accountmoney",
-        "pk": "f422ebdf-3672-51a5-a36d-d5919aa448fe"
+        "model": "infractions.infraction",
+        "pk": "d611c37c-4a85-566a-9efa-2e78aaaae17a"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-08-11",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "-675000.0"
+            "comments": "Apelada",
+            "created_at": "2023-12-01",
+            "officer": "3d2e6701-b15c-5891-93c2-d709d29eb74c",
+            "vehicle": "99d80342-0522-5a45-8bce-d9277e9069ba"
         },
-        "model": "position.accountmoney",
-        "pk": "8a96262d-f9bc-5cfd-95e6-aab9a86e57d2"
+        "model": "infractions.infraction",
+        "pk": "c352ce2b-79b8-5d11-924b-af7b083c6ec4"
     },
     {
         "fields": {
-            "account": "5be86589-ec2e-5db8-b388-36d2920a5511",
-            "date_deposit": "2023-08-11",
-            "money": "5eeb7eec-7dc5-55dd-a627-f1079c1afa3f",
-            "quantity": "167.03"
+            "comments": "El infractor estaba borracho",
+            "created_at": "2024-01-01",
+            "officer": "4b79630c-020f-52b2-9ffd-be0031abae7c",
+            "vehicle": "b9a9393e-a68e-5eaf-b6a0-d602492dae88"
         },
-        "model": "position.accountmoney",
-        "pk": "4b75513c-b418-5cff-8d69-b514c512aa42"
+        "model": "infractions.infraction",
+        "pk": "5e10a07c-19e0-54d3-ab54-46597b9d53b0"
     },
     {
         "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-09-06",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
+            "comments": "Apelada",
+            "created_at": "2022-01-01",
+            "officer": "eb500847-96e4-5759-a33b-ddab440c7667",
+            "vehicle": "1d1c6115-f86c-5c56-8bb5-5172310b211c"
         },
-        "model": "position.accountmoney",
-        "pk": "e9252b94-1eaa-5f18-9c1b-5381a4b0a315"
-    },
-    {
-        "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-10-08",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
-        },
-        "model": "position.accountmoney",
-        "pk": "eb3d4a9c-7d22-5b84-a669-b952eed81944"
-    },
-    {
-        "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-10-30",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "-675000.0"
-        },
-        "model": "position.accountmoney",
-        "pk": "4281f586-333d-5c6f-abdf-13c0c8d0aaa8"
-    },
-    {
-        "fields": {
-            "account": "5be86589-ec2e-5db8-b388-36d2920a5511",
-            "date_deposit": "2023-10-30",
-            "money": "5eeb7eec-7dc5-55dd-a627-f1079c1afa3f",
-            "quantity": "163.5"
-        },
-        "model": "position.accountmoney",
-        "pk": "b54a20f9-d891-5b8e-8783-d36838e5d8b0"
-    },
-    {
-        "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-11-10",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "675000.0"
-        },
-        "model": "position.accountmoney",
-        "pk": "33c3f77a-82f3-5ad4-b484-6eb20e61252e"
-    },
-    {
-        "fields": {
-            "account": "df6a75c8-67d1-5ec2-8d54-94ae46d817b3",
-            "date_deposit": "2023-11-15",
-            "money": "ba876c53-da24-5546-8f58-7e4294661680",
-            "quantity": "-1350000.0"
-        },
-        "model": "position.accountmoney",
-        "pk": "57bee122-4629-5983-9dfc-28431248a083"
-    },
-    {
-        "fields": {
-            "account": "5be86589-ec2e-5db8-b388-36d2920a5511",
-            "date_deposit": "2023-11-15",
-            "money": "5eeb7eec-7dc5-55dd-a627-f1079c1afa3f",
-            "quantity": "335.0"
-        },
-        "model": "position.accountmoney",
-        "pk": "c46bd7be-22c5-5bfe-b12e-fe45f279d250"
+        "model": "infractions.infraction",
+        "pk": "5ec5b03a-c372-5ca5-8ee1-95da4e9129a3"
     }
 ]
