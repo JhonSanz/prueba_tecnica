@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from 'next/link';
 import Table from "@/components/table";
 import Confirmation from "@/components/confirmation";
 import InfractionsSummaryService from "@/app/services/summary";
@@ -78,7 +79,7 @@ export default function Home() {
 
   return (
     <div>
-      <p>Hello :D</p>
+      <Link href="/login">Login</Link>
       <div>
         <Table columns={columns} rows={data} rowOptions={positionsOptionsMain} />
       </div>

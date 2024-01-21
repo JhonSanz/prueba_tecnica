@@ -46,7 +46,8 @@ function Login() {
         path: "/",
         secure: true,
       });
-      router.push("/redirect");
+      console.log(data)
+      // router.push("/dashboard");
     }
   }
 

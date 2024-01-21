@@ -10,7 +10,7 @@ const fetchWithInterceptor = async (url: string, options: RequestInit, tokenPara
   }
   const headers = {
     ...options.headers,
-    // Authorization: `Bearer ${getAuthToken(token, tokenParam || "")}`,
+    Authorization: `Bearer ${getAuthToken(token, tokenParam || "")}`,
   };
 
   const modifiedOptions: RequestInit = {
