@@ -6,6 +6,12 @@ import InfractionService from "@/app/services/infraction";
 import VehicleService from "@/app/services/vehicle";
 import PersonService from "@/app/services/person";
 import OfficerService from "@/app/services/officer";
+import positionsOptions from "@/components/tableRowOptions";
+import Modal from '@/components/modal';
+
+import CreatePersonForm, { personForms } from "./formsPerson";
+import CreateVehicleForm, { vehicleForms } from "./formsVehicle";
+
 
 function Dashboard() {
 
@@ -21,7 +27,7 @@ function Dashboard() {
     { name: "Marca", field: "brand.name" },
     { name: "Placa", field: "license_plate" },
     { name: "Color", field: "color" },
-    { name: "Infractor", field: "infractor.name" },
+    { name: "Dueño", field: "infractor.name" },
   ]
 
   const columnsPerson = [
@@ -48,6 +54,8 @@ function Dashboard() {
     return data.response;
   }
 
+  const BRANDS = [{ id: 1, name: "yamaha" }, { id: 2, name: "other" }];
+
   useEffect(() => {
     async function fetchData() {
       let data;
@@ -55,10 +63,23 @@ function Dashboard() {
         case "person":
           data = await getPositionsData(PersonService);
           setColumns(columnsPerson);
+          setModalOption(
+            <CreatePersonForm
+              setIsModalOpen={setIsModalOpen}
+            // updateInterface={updateInterface}
+            />
+          );
           break;
         case "vehicle":
           data = await getPositionsData(VehicleService);
           setColumns(columnsVehicle);
+          setModalOption(
+            <CreateVehicleForm
+              brands={BRANDS}
+              setIsModalOpen={setIsModalOpen}
+            // updateInterface={updateInterface}
+            />
+          );
           break;
         case "infraction":
           data = await getPositionsData(InfractionService);
@@ -72,11 +93,46 @@ function Dashboard() {
           data = [];
           break;
       }
-      console.log("option", option, data.data)
       setData(data.data)
     }
     fetchData();
   }, [option]);
+
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalOption, setModalOption] = useState<any>(null);
+
+  const rowOptions = [
+    { icon: "pencil" },
+    { icon: "trash3" },
+  ]
+  const performAction = (action: string, row: any) => {
+    let formOption = null;
+
+    switch (option) {
+      case "person":
+        formOption = personForms(action, row, setIsModalOpen);
+        break;
+      case "vehicle":
+        formOption = vehicleForms(action, row, setIsModalOpen, BRANDS);
+        break;
+      case "infraction":
+        formOption = personForms(action, row, setIsModalOpen);
+        break;
+      case "officer":
+        formOption = personForms(action, row, setIsModalOpen);
+        break;
+      default:
+        break;
+    }
+    if (formOption === null) return;
+    setModalOption(formOption);
+    setIsModalOpen(true);
+  }
+
+  const positionsOptionsMain = (row: any) => positionsOptions(row, rowOptions, performAction)
+
+
 
   return (
     <div>
@@ -89,8 +145,19 @@ function Dashboard() {
       </select>
 
       <br />
-      <Table columns={columns} rows={data} /*rowOptions={positionsOptionsMain}*/ />
-
+      <button
+        onClick={() => {
+          setIsModalOpen(true);
+        }}
+      >
+        <i className="bi bi-plus-lg"></i>
+      </button>
+      <br />
+      <Table columns={columns} rows={data} rowOptions={positionsOptionsMain} />
+      <Modal
+        isOpen={isModalOpen} setIsOpen={setIsModalOpen}
+        children={modalOption}
+      />
     </div>
   );
 }

@@ -33,60 +33,13 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [modalOption, setModalOption] = useState<any>(null);
-
-  const rowOptions = [
-    { icon: "pencil" },
-    { icon: "scissors" },
-    { icon: "trash3" },
-  ]
-  const performAction = (action: string, row: any) => {
-    let formOption = null;
-    switch (action) {
-      // case "pencil":
-      //   formOption = <UpdatePositionForm
-      //     currentRow={row}
-      //     assets={assets}
-      //     setIsModalOpen={setIsModalOpen}
-      //     currentPosition={row}
-      //     updateInterface={updateInterface}
-      //   />
-      //   break;
-      case "trash3":
-        formOption = <Confirmation
-          title="Delete position"
-          description="Are you sure you want to delete this position? It will delete all the deals and the position."
-          onConfirm={() => /*deletePosition(row.id)*/ console.log("world")} onCancel={() => setIsModalOpen(false)}
-        />
-        break;
-      // case "scissors":
-      //   formOption = <DealPositionForm
-      //     setIsModalOpen={setIsModalOpen}
-      //     currentPosition={row}
-      //     updateInterface={updateInterface}
-      //   />
-      //   break;
-      default:
-        return;
-    }
-    if (formOption === null) return;
-    setModalOption(formOption);
-    setIsModalOpen(true);
-  }
-
-  const positionsOptionsMain = (row: any) => positionsOptions(row, rowOptions, performAction)
-
   return (
     <div>
       <Link href="/login">Login</Link>
       <div>
-        <Table columns={columns} rows={data} rowOptions={positionsOptionsMain} />
+        <Table columns={columns} rows={data} />
       </div>
-      <Modal
-        isOpen={isModalOpen} setIsOpen={setIsModalOpen}
-        children={modalOption}
-      />
+
     </div>
   );
 }
