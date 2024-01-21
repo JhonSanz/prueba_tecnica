@@ -27,14 +27,17 @@ class InfractionOfficerCreateSerializer(serializers.Serializer):
     def validate_placa_patente(self, value):
         vehicle = Vehicle.objects.filter(license_plate=value).first()
         if not vehicle:
-            raise serializers.ValidationError({"vehicle": "No se encontró un vehículo con esta placa patente."})
+            raise serializers.ValidationError("No se encontró un vehículo con esta placa patente.")
         return value
 
     def create(self, validated_data):
+        if not hasattr(self.context["request"].user, "officer_user"):
+            raise serializers.ValidationError("Este usuario no es un agente de transito.")
+
         infraction = Infraction(**{
             "officer": self.context["request"].user.officer_user,
             "created_at": validated_data["timestamp"],
-            "vehicle": validated_data["placa_patente"],
+            "vehicle": Vehicle.objects.get(license_plate=validated_data["placa_patente"]),
             "comments": validated_data["comentarios"],
         })
         infraction.save()

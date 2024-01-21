@@ -26,7 +26,7 @@ class ChildPaginator():
 
 
 DEFAULT_PAGE = 1
-DEFAULT_PAGE_SIZE = 10
+DEFAULT_PAGE_SIZE = 100
 
 class CustomPagination(PageNumberPagination):
     page = DEFAULT_PAGE

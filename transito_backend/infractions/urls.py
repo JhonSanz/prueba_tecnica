@@ -14,7 +14,8 @@ router.register('vehicle', VehicleViewSet, basename='vehicle')
 router.register('officer', OfficerViewSet, basename='officer')
 router.register('infraction', InfractionViewSet, basename='infraction')
 router.register('generar_informe', SummaryViewSet, basename='generar_informe')
-router.register('cargar_infraccion', LoadInfractionViewSet, basename='cargar_infraccion')
 
-urlpatterns = []
+urlpatterns = [
+    path('cargar_infraccion/', LoadInfractionViewSet.as_view()),
+]
 urlpatterns += router.urls
