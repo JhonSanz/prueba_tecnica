@@ -53,5 +53,6 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['first_name'] = self.user.first_name
         data['last_name'] = self.user.last_name
         data['email'] = self.user.email
+        data["is_officer"] = hasattr(self.user, "officer_user")
 
         return data
