@@ -1,21 +1,21 @@
 import React, { useState, useRef } from 'react';
 import DynamicForm from '@/components/dynamicForm';
 import InfoMessage from '@/components/infoMessage';
-import PersonService from "@/app/services/person";
+import OfficerService from "@/app/services/officer";
 import ErrorsFormatting from '@/components/errorsFormatting';
 import * as Yup from 'yup';
 import Confirmation from "@/components/confirmation";
 
 
-interface CreatePersonFormProps {
+interface CreateOfficerFormProps {
   setIsModalOpen: (e: boolean) => void;
   // updateInterface: () => void;
 }
 
-function CreatePersonForm({
+function CreateOfficerForm({
   setIsModalOpen,
   // updateInterface,
-}: CreatePersonFormProps) {
+}: CreateOfficerFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const ref = useRef<HTMLFormElement>(null);
 
@@ -27,7 +27,7 @@ function CreatePersonForm({
 
   const handleSubmitForm = async (bodyValues: any) => {
     const bodyCopy = { ...bodyValues, direction: "1" }
-    const positionService = new PersonService();
+    const positionService = new OfficerService();
     const data = await positionService.post(bodyCopy);
     if (data.error) {
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
@@ -46,16 +46,16 @@ function CreatePersonForm({
       "validators": Yup.string().required("required")
     },
     {
-      "alias": "Email",
-      "name": "email",
-      "type": "email",
+      "alias": "Identificación",
+      "name": "identification",
+      "type": "string",
       "default": "",
       "validators": Yup.string().required("required")
     },
   ]
   return (
     <div>
-      <h3>Create Person</h3>
+      <h3>Create Officer</h3>
       <DynamicForm ref={ref} fields={fields} submitFunction={handleSubmitForm} />
       <br />
       <InfoMessage error={errorMessage} />
@@ -64,20 +64,20 @@ function CreatePersonForm({
   )
 }
 
-export default CreatePersonForm;
+export default CreateOfficerForm;
 
 
-interface UpdatePersonFormProps {
+interface UpdateOfficerFormProps {
   setIsModalOpen: (e: boolean) => void;
   currentRow: any;
   // updateInterface: () => void;
 }
 
-function UpdatePersonForm({
+function UpdateOfficerForm({
   setIsModalOpen,
   currentRow,
   // updateInterface,
-}: UpdatePersonFormProps) {
+}: UpdateOfficerFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const ref = useRef<HTMLFormElement>(null);
 
@@ -88,7 +88,7 @@ function UpdatePersonForm({
   }
 
   const handleSubmitForm = async (bodyValues: any) => {
-    const positionService = new PersonService();
+    const positionService = new OfficerService();
     const data = await positionService.put(currentRow.id, bodyValues);
     if (data.error) {
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
@@ -107,16 +107,16 @@ function UpdatePersonForm({
       "validators": Yup.string().required("required")
     },
     {
-      "alias": "Email",
-      "name": "email",
-      "type": "email",
-      "default": currentRow.email,
+      "alias": "Identificación",
+      "name": "identification",
+      "type": "string",
+      "default": currentRow.identification,
       "validators": Yup.string().required("required")
-    }
+    },
   ]
   return (
     <div>
-      <h3>Update Person</h3>
+      <h3>Update Officer</h3>
       <DynamicForm ref={ref} fields={fields} submitFunction={handleSubmitForm} />
       <br />
       <InfoMessage error={errorMessage} />
@@ -125,21 +125,21 @@ function UpdatePersonForm({
   )
 }
 
-export { UpdatePersonForm };
+export { UpdateOfficerForm };
 
 
-export function personForms(action: string, row: any, setIsModalOpen: any) {
+export function officerForms(action: string, row: any, setIsModalOpen: any) {
   switch (action) {
     case "pencil":
-      return  <UpdatePersonForm
+      return <UpdateOfficerForm
         currentRow={row}
         setIsModalOpen={setIsModalOpen}
       // updateInterface={updateInterface}
       />
     case "trash3":
-      return  <Confirmation
+      return <Confirmation
         title="Delete position"
-        description="Are you sure you want to delete this person?"
+        description="Are you sure you want to delete this officer?"
         onConfirm={() => /*deletePosition(row.id)*/ console.log("world")} onCancel={() => setIsModalOpen(false)}
       />
     default:

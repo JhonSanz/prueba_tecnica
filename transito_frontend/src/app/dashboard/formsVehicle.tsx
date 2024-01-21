@@ -147,7 +147,7 @@ function UpdateVehicleForm({
 
   return (
     <div>
-      <h3>Update Vehicle :)</h3>
+      <h3>Update Vehicle</h3>
       <DynamicForm ref={ref} fields={fields} submitFunction={handleSubmitForm} />
       <br />
       <InfoMessage error={errorMessage} />

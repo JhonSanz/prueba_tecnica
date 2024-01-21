@@ -11,6 +11,7 @@ import Modal from '@/components/modal';
 
 import CreatePersonForm, { personForms } from "./formsPerson";
 import CreateVehicleForm, { vehicleForms } from "./formsVehicle";
+import CreateOfficerForm, { officerForms } from "./formsOfficer";
 
 
 function Dashboard() {
@@ -21,7 +22,7 @@ function Dashboard() {
   const [columns, setColumns]: Array<any> = useState([]);
 
   const [option, setOption] = useState("person");
-  const allTables = ["person", "vehicle", "infraction", "officer"];
+  const allTables = ["person", "vehicle", "officer"];
 
   const columnsVehicle = [
     { name: "Marca", field: "brand.name" },
@@ -88,6 +89,12 @@ function Dashboard() {
         case "officer":
           data = await getPositionsData(OfficerService);
           setColumns(columnsOfficer);
+          setModalOption(
+            <CreateOfficerForm
+              setIsModalOpen={setIsModalOpen}
+            // updateInterface={updateInterface}
+            />
+          );
           break;
         default:
           data = [];
@@ -120,7 +127,7 @@ function Dashboard() {
         formOption = personForms(action, row, setIsModalOpen);
         break;
       case "officer":
-        formOption = personForms(action, row, setIsModalOpen);
+        formOption = officerForms(action, row, setIsModalOpen);
         break;
       default:
         break;
@@ -136,7 +143,7 @@ function Dashboard() {
 
   return (
     <div>
-      <h1>Hello :D {option}</h1>
+      <h1>Hello :D</h1>
 
       <select className="form-select" onChange={(e) => setOption(e.target.value)}>
         {
