@@ -1,3 +1,11 @@
+##### Índice
+1. Consideraciones
+2. Hablando sobre AWS y este proyecto
+3. Lambda
+4. Pasos para ejecutar este proyecto
+5. Pasos para utilizar este proyecto
+6. Palabras finales
+
 ### Consideraciones
 
 1. Decidí crear el UI yo mismo porque la vacante mencionaba que era necesario saber reactjs jeje. Sin embargo me aproveché de la ambiguedad de los requerimientos para soslayar cuestiones de seguridad tácitos en cualquier interfaz de usuario
@@ -53,3 +61,9 @@ Sin embargo mi experiencia ha sido buena con lambda, utilizar las librerías de 
 | Policia 5 | 1234567890 |
 
 Pero al crear un officer nuevo este puede registrar infracciones.
+
+### Palabras finales
+
+- Se subieron las imagenes del backend y frontend al repositorio público de dockerhub.
+- No identifiqué errores, pero de haberlos tengan piedad hahaha
+- Gracias totales
