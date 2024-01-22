@@ -78,5 +78,5 @@ Pero al crear un officer nuevo este puede registrar infracciones.
 ### Palabras finales
 
 - Se subieron las imagenes del backend y frontend al repositorio público de dockerhub.
-- No identifiqué errores, pero de haberlos tengan piedad hahaha
+- No identifiqué errores, pero de haberlos tengan piedad hahaha, agradecería que me reporten si algo llega a fallar.
 - Gracias totales
