@@ -9,12 +9,12 @@ import Confirmation from "@/components/confirmation";
 
 interface CreateOfficerFormProps {
   setIsModalOpen: (e: boolean) => void;
-  // updateInterface: () => void;
+  updateInterface: () => void;
 }
 
 function CreateOfficerForm({
   setIsModalOpen,
-  // updateInterface,
+  updateInterface,
 }: CreateOfficerFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const ref = useRef<HTMLFormElement>(null);
@@ -33,7 +33,7 @@ function CreateOfficerForm({
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
     } else {
       setIsModalOpen(false);
-      // updateInterface();
+      updateInterface();
     }
   }
 
@@ -70,13 +70,13 @@ export default CreateOfficerForm;
 interface UpdateOfficerFormProps {
   setIsModalOpen: (e: boolean) => void;
   currentRow: any;
-  // updateInterface: () => void;
+  updateInterface: () => void;
 }
 
 function UpdateOfficerForm({
   setIsModalOpen,
   currentRow,
-  // updateInterface,
+  updateInterface,
 }: UpdateOfficerFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const ref = useRef<HTMLFormElement>(null);
@@ -94,7 +94,7 @@ function UpdateOfficerForm({
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
     } else {
       setIsModalOpen(false);
-      // updateInterface();
+      updateInterface();
     }
   }
 
@@ -128,13 +128,13 @@ function UpdateOfficerForm({
 export { UpdateOfficerForm };
 
 
-export function officerForms(action: string, row: any, setIsModalOpen: any) {
+export function officerForms(action: string, row: any, setIsModalOpen: any, updateInterface: any) {
   switch (action) {
     case "pencil":
       return <UpdateOfficerForm
         currentRow={row}
         setIsModalOpen={setIsModalOpen}
-      // updateInterface={updateInterface}
+        updateInterface={updateInterface}
       />
     case "trash3":
       return <Confirmation

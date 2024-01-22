@@ -48,51 +48,50 @@ function Dashboard() {
     { name: "Identificación", field: "identification" }
   ]
 
-  async function getPositionsData(service: any): Promise<any> {
-    const positionService = new service();
-    const data = await positionService.get();
+  async function getData(service: any): Promise<any> {
+    const serviceInstance = new service();
+    const data = await serviceInstance.get();
     if (data.error) return { data: [] };
     return data.response;
   }
 
-  const BRANDS = [{ id: 1, name: "yamaha" }, { id: 2, name: "other" }];
+  async function updateInterface(service: any): Promise<any> {
+    const serviceInstance = new service();
+    const data = await serviceInstance.get();
+    if (!data.error) setData(data.response.data)
+  }
 
   useEffect(() => {
     async function fetchData() {
       let data;
       switch (option) {
         case "person":
-          data = await getPositionsData(PersonService);
+          data = await getData(PersonService);
           setColumns(columnsPerson);
           setModalOption(
             <CreatePersonForm
               setIsModalOpen={setIsModalOpen}
-            // updateInterface={updateInterface}
+              updateInterface={() => updateInterface(PersonService)}
             />
           );
           break;
         case "vehicle":
-          data = await getPositionsData(VehicleService);
+          data = await getData(VehicleService);
           setColumns(columnsVehicle);
           setModalOption(
             <CreateVehicleForm
-              brands={BRANDS}
               setIsModalOpen={setIsModalOpen}
-            // updateInterface={updateInterface}
+              updateInterface={() => updateInterface(VehicleService)}
             />
           );
           break;
-        case "infraction":
-          data = await getPositionsData(InfractionService);
-          setColumns(columnsInfraction);
-          break;
         case "officer":
-          data = await getPositionsData(OfficerService);
+          data = await getData(OfficerService);
           setColumns(columnsOfficer);
           setModalOption(
             <CreateOfficerForm
               setIsModalOpen={setIsModalOpen}
-            // updateInterface={updateInterface}
+              updateInterface={() => updateInterface(OfficerService)}
             />
           );
           break;
@@ -118,16 +117,13 @@ function Dashboard() {
 
     switch (option) {
       case "person":
-        formOption = personForms(action, row, setIsModalOpen);
+        formOption = personForms(action, row, setIsModalOpen, () => updateInterface(PersonService));
         break;
       case "vehicle":
-        formOption = vehicleForms(action, row, setIsModalOpen, BRANDS);
-        break;
-      case "infraction":
-        formOption = personForms(action, row, setIsModalOpen);
+        formOption = vehicleForms(action, row, setIsModalOpen, () => updateInterface(VehicleService));
         break;
       case "officer":
-        formOption = officerForms(action, row, setIsModalOpen);
+        formOption = officerForms(action, row, setIsModalOpen, () => updateInterface(OfficerService));
         break;
       default:
         break;
@@ -138,8 +134,6 @@ function Dashboard() {
   }
 
   const positionsOptionsMain = (row: any) => positionsOptions(row, rowOptions, performAction)
-
-
 
   return (
     <div>

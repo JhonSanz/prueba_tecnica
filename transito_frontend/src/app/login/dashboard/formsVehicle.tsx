@@ -11,12 +11,12 @@ import BrandService from '@/app/services/brand';
 
 interface CreateVehicleFormProps {
   setIsModalOpen: (e: boolean) => void;
-  // updateInterface: () => void;
+  updateInterface: () => void;
 }
 
 function CreateVehicleForm({
   setIsModalOpen,
-  // updateInterface,
+  updateInterface,
 }: CreateVehicleFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const [brands, setBrands] = useState<Array<any>>([]);
@@ -60,7 +60,7 @@ function CreateVehicleForm({
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
     } else {
       setIsModalOpen(false);
-      // updateInterface();
+      updateInterface();
     }
   }
 
@@ -111,13 +111,13 @@ export default CreateVehicleForm;
 interface UpdateVehicleFormProps {
   setIsModalOpen: (e: boolean) => void;
   currentRow: any;
-  // updateInterface: () => void;
+  updateInterface: () => void;
 }
 
 function UpdateVehicleForm({
   setIsModalOpen,
   currentRow,
-  // updateInterface,
+  updateInterface,
 }: UpdateVehicleFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
   const [brands, setBrands] = useState<Array<any>>([]);
@@ -162,7 +162,7 @@ function UpdateVehicleForm({
       setErrorMessage(<ErrorsFormatting errors={data.response} />);
     } else {
       setIsModalOpen(false);
-      // updateInterface();
+      updateInterface();
     }
   }
   const fields = [
@@ -210,13 +210,13 @@ function UpdateVehicleForm({
 export { UpdateVehicleForm };
 
 
-export function vehicleForms(action: string, row: any, setIsModalOpen: any, brands: any) {
+export function vehicleForms(action: string, row: any, setIsModalOpen: any, updateInterface: any) {
   switch (action) {
     case "pencil":
       return <UpdateVehicleForm
         currentRow={row}
         setIsModalOpen={setIsModalOpen}
-      // updateInterface={updateInterface}
+        updateInterface={updateInterface}
       />
     case "trash3":
       return <Confirmation
