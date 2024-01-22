@@ -34,8 +34,22 @@ Sin embargo mi experiencia ha sido buena con lambda, utilizar las librerías de 
 ### Pasos para ejecutar este proyecto
 
 1. Tener docker instalado
-2. Correr `docker-compose -f docker-compose.yml up`
+2. Correr `docker compose -f docker_compose.yml up`
 3. Disfrutar
 
 ### Pasos para utilizar este proyecto
 
+- El usuario con privilegos de administrador es:
+> username: admin, password: Hola123...
+
+- Los usuarios que pueden registrar infracciones inicialmente son:
+
+| username  | password   |
+| --------- | ---------- |
+| Policia 1 | 8291635475 |
+| Policia 2 | 5588446621 |
+| Policia 3 | 6985471203 |
+| Policia 4 | 3512468795 |
+| Policia 5 | 1234567890 |
+
+Pero al crear un officer nuevo este puede registrar infracciones.
