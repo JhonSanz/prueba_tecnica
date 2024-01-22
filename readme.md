@@ -64,14 +64,14 @@ Pero al crear un officer nuevo este puede registrar infracciones.
 
 - Los correos de las personas registradas en el sistema son:
 
-| email       |
-| ----------- |
-| p1@mail.com |
-| p2@mail.com |
-| p3@mail.com |
-| p4@mail.com |
-| p5@mail.com |
-| p6@mail.com |
+| email          |
+| -------------- |
+| pedro@mail.com |
+| p2@mail.com    |
+| p3@mail.com    |
+| p4@mail.com    |
+| p5@mail.com    |
+| p6@mail.com    |
 
 - Toda la data pregarcada está en el archivo `transito_backend/utilities/initial_data/data_infracciones.xlsx`
 
