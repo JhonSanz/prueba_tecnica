@@ -16,8 +16,6 @@ import CreateOfficerForm, { officerForms } from "./formsOfficer";
 
 function Dashboard() {
 
-  const [isAdmin, setIsAdmin] = useState(false);
-
   const [data, setData] = useState([]);
   const [columns, setColumns]: Array<any> = useState([]);
 
@@ -61,6 +59,28 @@ function Dashboard() {
     if (!data.error) setData(data.response.data)
   }
 
+  function getCreateForm() {
+    switch (option) {
+      case "person":
+        return <CreatePersonForm
+          setIsModalOpen={setIsModalOpen}
+          updateInterface={() => updateInterface(PersonService)}
+        />
+      case "vehicle":
+        return <CreateVehicleForm
+          setIsModalOpen={setIsModalOpen}
+          updateInterface={() => updateInterface(VehicleService)}
+        />
+      case "officer":
+        return <CreateOfficerForm
+          setIsModalOpen={setIsModalOpen}
+          updateInterface={() => updateInterface(OfficerService)}
+        />
+      default:
+        break;
+    }
+  }
+
   useEffect(() => {
     async function fetchData() {
       let data;
@@ -68,32 +88,17 @@ function Dashboard() {
         case "person":
           data = await getData(PersonService);
           setColumns(columnsPerson);
-          setModalOption(
-            <CreatePersonForm
-              setIsModalOpen={setIsModalOpen}
-              updateInterface={() => updateInterface(PersonService)}
-            />
-          );
+          setModalOption(getCreateForm());
           break;
         case "vehicle":
           data = await getData(VehicleService);
           setColumns(columnsVehicle);
-          setModalOption(
-            <CreateVehicleForm
-              setIsModalOpen={setIsModalOpen}
-              updateInterface={() => updateInterface(VehicleService)}
-            />
-          );
+          setModalOption(getCreateForm());
           break;
         case "officer":
           data = await getData(OfficerService);
           setColumns(columnsOfficer);
-          setModalOption(
-            <CreateOfficerForm
-              setIsModalOpen={setIsModalOpen}
-              updateInterface={() => updateInterface(OfficerService)}
-            />
-          );
+          setModalOption(getCreateForm());
           break;
         default:
           data = [];
@@ -148,6 +153,7 @@ function Dashboard() {
       <br />
       <button
         onClick={() => {
+          setModalOption(getCreateForm());
           setIsModalOpen(true);
         }}
       >

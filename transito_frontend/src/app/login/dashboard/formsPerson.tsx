@@ -129,18 +129,26 @@ export { UpdatePersonForm };
 
 
 export function personForms(action: string, row: any, setIsModalOpen: any, updateInterface: any) {
+
+  async function deletePerson(id: string) {
+    const service = new PersonService();
+    await service.del(id);
+    updateInterface();
+    setIsModalOpen(false);
+  }
+
   switch (action) {
     case "pencil":
-      return  <UpdatePersonForm
+      return <UpdatePersonForm
         currentRow={row}
         setIsModalOpen={setIsModalOpen}
         updateInterface={updateInterface}
       />
     case "trash3":
-      return  <Confirmation
-        title="Delete position"
+      return <Confirmation
+        title="Delete person"
         description="Are you sure you want to delete this person?"
-        onConfirm={() => /*deletePosition(row.id)*/ console.log("world")} onCancel={() => setIsModalOpen(false)}
+        onConfirm={() => deletePerson(row.id)} onCancel={() => setIsModalOpen(false)}
       />
     default:
       return;

@@ -129,6 +129,14 @@ export { UpdateOfficerForm };
 
 
 export function officerForms(action: string, row: any, setIsModalOpen: any, updateInterface: any) {
+
+  async function deleteOfficer(id: string) {
+    const positionService = new OfficerService();
+    await positionService.del(id);
+    updateInterface();
+    setIsModalOpen(false);
+  }
+
   switch (action) {
     case "pencil":
       return <UpdateOfficerForm
@@ -138,9 +146,9 @@ export function officerForms(action: string, row: any, setIsModalOpen: any, upda
       />
     case "trash3":
       return <Confirmation
-        title="Delete position"
+        title="Delete officer"
         description="Are you sure you want to delete this officer?"
-        onConfirm={() => /*deletePosition(row.id)*/ console.log("world")} onCancel={() => setIsModalOpen(false)}
+        onConfirm={() => deleteOfficer(row.id)} onCancel={() => setIsModalOpen(false)}
       />
     default:
       return;
