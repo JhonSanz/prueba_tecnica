@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    image: jhonsanz/prueba_tecnica_infracciones_frontend:latest
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  backend:
+    image: jhonsanz/prueba_tecnica_infracciones_backend:latest
+    restart: on-failure
+    ports:
+      - "8000:8000"

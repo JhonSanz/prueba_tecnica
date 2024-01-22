@@ -1,7 +1,7 @@
 ### Consideraciones
 
 1. Decidí crear el UI yo mismo porque la vacante mencionaba que era necesario saber reactjs jeje. Sin embargo me aproveché de la ambiguedad de los requerimientos para soslayar cuestiones de seguridad tácitos en cualquier interfaz de usuario
-2. Utilicé mucho código que hago en mi diario vivir, por lo que realmente eso sería lo interesante de mirar. Por ejemplo en el backend hay algunos módulos que utilizo para ahorrar tiempo cargando data dummy (`transito_backend/utilities/initial_data/data_creator.py`). Es por ese motivo que utilizo módulos como pandas etc (que en un proyecto pequeño como este no sería para nada necesario)
+2. Utilicé mucho código que hago en mi diario vivir, por lo que realmente eso sería lo interesante de mirar. Por ejemplo en el backend hay algunos módulos que utilizo para ahorrar tiempo cargando data dummy (`transito_backend/utilities/initial_data/data_creator.py`). Es por ese motivo que utilizo módulos como pandas etc (que en un proyecto pequeño como este no sería para nada necesario). De la misma manera hay otros comandos que he creado para django a lo largo del tiempo, para generar código automáticamente etc, pueden verlos en el mismo directorio /utilities.
 3. Utilicé Django aunque en la vacante se menciona el uso de funciones lambda, eso se cubrirá mas adelante. Este repositorio no contiene código para funciones lambda, pero tengo este que puede ser interesante revisar https://github.com/JhonSanz/lambda_docker_graphql
 
 ### Hablando sobre AWS y este proyecto
