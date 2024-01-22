@@ -4,9 +4,9 @@ import { useState } from "react";
 import LoginService from "../services/login";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { setCookie } from 'cookies-next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { setCookie } from 'cookies-next';
 
 import OfficerLoading from "./officerLoading/officerLoading";
 import Dashboard from "./dashboard/dashboard";
@@ -41,17 +41,9 @@ function Login() {
     if (data.error) {
       formik.setValues({ username: "", password: "" });
     } else {
-      setCookie("token", data.response.access, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/",
-        secure: true,
-      });
-      setCookie("refresh", data.response.refresh, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/",
-        secure: true,
-      });
-      console.log(data)
+      localStorage.setItem("token", data.response.access);
+      localStorage.setItem("refresh", data.response.refresh);
+      localStorage.setItem("is_officer", data.response.is_officer);
       setIsOfficer(data.response.is_officer);
       setToken(true);
     }

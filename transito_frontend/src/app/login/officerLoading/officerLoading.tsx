@@ -37,7 +37,6 @@ function OfficerLoading() {
       formik.setValues({ placa_patente: "", timestamp: "", comentarios: "" });
       setServerErrors(data.response);
     } else {
-      console.log("aqui estoy")
       alert("done");
     }
   }

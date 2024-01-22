@@ -1,17 +1,19 @@
+"use client";
+
 import { getCookie, deleteCookie } from 'cookies-next';
 
-let token = getCookie("token") || '';
 
-const fetchWithInterceptor = async (url: string, options: RequestInit, tokenParam = ""): Promise<any> => {
+const fetchWithInterceptor = async (url: string, options: RequestInit, tokenParam = "", includeToken: boolean = true): Promise<any> => {
+  let token = localStorage.getItem("token") || '';
+
+  console.log(token)
   const getAuthToken = (token: string, tokenParam: string) => {
     if (tokenParam) return tokenParam;
     if (token) return token;
     return ""
   }
-  const headers = {
-    ...options.headers,
-    Authorization: `Bearer ${getAuthToken(token, tokenParam || "")}`,
-  };
+  const headers: any = { ...options.headers };
+  if (includeToken) headers["Authorization"] = `Bearer ${getAuthToken(token, tokenParam || "")}`;
 
   const modifiedOptions: RequestInit = {
     ...options,

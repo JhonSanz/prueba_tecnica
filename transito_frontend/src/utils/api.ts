@@ -5,7 +5,7 @@ abstract class AbstractHttpService {
   protected URL_API = "http://127.0.0.1:8000";
   protected URL: string | undefined;
 
-  async get(params: any = '', token?: string): Promise<any> {
+  async get(params: any = '', token?: string, includeToken: boolean = true): Promise<any> {
     const param = params ? `?${this.objToQueryString(params)}` : '';
     const response = await fetchWithInterceptor(`${this.URL_API + this.URL + param}`,
       {
@@ -14,7 +14,8 @@ abstract class AbstractHttpService {
           'Content-Type': 'application/json',
         }
       },
-      token
+      token,
+      includeToken
     )
     return response;
   }

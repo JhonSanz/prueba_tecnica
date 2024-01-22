@@ -1,24 +1,26 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DynamicForm from '@/components/dynamicForm';
 import InfoMessage from '@/components/infoMessage';
 import VehicleService from "@/app/services/vehicle";
+import PersonService from "@/app/services/person";
 import ErrorsFormatting from '@/components/errorsFormatting';
 import * as Yup from 'yup';
 import Confirmation from "@/components/confirmation";
+import BrandService from '@/app/services/brand';
 
 
 interface CreateVehicleFormProps {
-  brands: Array<any>;
   setIsModalOpen: (e: boolean) => void;
   // updateInterface: () => void;
 }
 
 function CreateVehicleForm({
-  brands,
   setIsModalOpen,
   // updateInterface,
 }: CreateVehicleFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
+  const [brands, setBrands] = useState<Array<any>>([]);
+  const [person, setPerson] = useState<Array<any>>([]);
   const ref = useRef<HTMLFormElement>(null);
 
   const triggerSubmit = () => {
@@ -26,6 +28,30 @@ function CreateVehicleForm({
     if (!ref.current.isValid()) return;
     ref.current.submit();
   }
+
+  async function getBrandData(): Promise<any> {
+    const brandService = new BrandService();
+    const data = await brandService.get();
+    if (data.error) return { data: [] };
+    return data.response;
+  }
+
+  async function getPersonData(): Promise<any> {
+    const personService = new PersonService();
+    const data = await personService.get();
+    if (data.error) return { data: [] };
+    return data.response;
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getBrandData();
+      const responsePerson = await getPersonData();
+      setBrands(response.data);
+      setPerson(responsePerson.data);
+    }
+    fetchData();
+  }, []);
 
   const handleSubmitForm = async (bodyValues: any) => {
     const positionService = new VehicleService();
@@ -60,13 +86,13 @@ function CreateVehicleForm({
       "default": "",
       "validators": Yup.string().required("required")
     },
-    // {
-    //   "alias": "brand",
-    //   "name": "Marca", "type": "choices",
-    //   "default": brands.length > 0 ? brands[0].id : "",
-    //   "validators": Yup.string(),
-    //   "choices": brands.map((brand: any) => { return { value: brand.id, name: brand.name } })
-    // }
+    {
+      "alias": "Dueño",
+      "name": "infractor", "type": "choices",
+      "default": person.length > 0 ? person[0].id : "",
+      "validators": Yup.string(),
+      "choices": person.map((p: any) => { return { value: p.id, name: p.name } })
+    }
   ]
   return (
     <div>
@@ -83,19 +109,19 @@ export default CreateVehicleForm;
 
 
 interface UpdateVehicleFormProps {
-  brands: Array<any>;
   setIsModalOpen: (e: boolean) => void;
   currentRow: any;
   // updateInterface: () => void;
 }
 
 function UpdateVehicleForm({
-  brands,
   setIsModalOpen,
   currentRow,
   // updateInterface,
 }: UpdateVehicleFormProps) {
   const [errorMessage, setErrorMessage] = useState<React.ReactNode>(null);
+  const [brands, setBrands] = useState<Array<any>>([]);
+  const [person, setPerson] = useState<Array<any>>([]);
   const ref = useRef<HTMLFormElement>(null);
 
   const triggerSubmit = () => {
@@ -103,6 +129,31 @@ function UpdateVehicleForm({
     if (!ref.current.isValid()) return;
     ref.current.submit();
   }
+
+  async function getBrandData(): Promise<any> {
+    const brandService = new BrandService();
+    const data = await brandService.get();
+    if (data.error) return { data: [] };
+    return data.response;
+  }
+
+  async function getPersonData(): Promise<any> {
+    const personService = new PersonService();
+    const data = await personService.get();
+    if (data.error) return { data: [] };
+    return data.response;
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getBrandData();
+      const responsePerson = await getPersonData();
+      setBrands(response.data);
+      setPerson(responsePerson.data);
+    }
+    fetchData();
+  }, []);
+
 
   const handleSubmitForm = async (bodyValues: any) => {
     const positionService = new VehicleService();
@@ -136,13 +187,13 @@ function UpdateVehicleForm({
       "default": currentRow.color,
       "validators": Yup.string().required("required")
     },
-    // {
-    //   "alias": "brand",
-    //   "name": "Marca", "type": "choices",
-    //   "default": brands.length > 0 ? brands[0].id : "",
-    //   "validators": Yup.string(),
-    //   "choices": brands.map((brand: any) => { return { value: brand.id, name: brand.name } })
-    // }
+    {
+      "alias": "Dueño",
+      "name": "infractor", "type": "choices",
+      "default": currentRow.infractor.id,
+      "validators": Yup.string(),
+      "choices": person.map((p: any) => { return { value: p.id, name: p.name } })
+    }
   ]
 
   return (
@@ -163,7 +214,6 @@ export function vehicleForms(action: string, row: any, setIsModalOpen: any, bran
   switch (action) {
     case "pencil":
       return <UpdateVehicleForm
-        brands={brands}
         currentRow={row}
         setIsModalOpen={setIsModalOpen}
       // updateInterface={updateInterface}
